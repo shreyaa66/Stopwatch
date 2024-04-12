@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="demo">
+
+<span id="hh">
+
+</span>
+<span id="mm">
+
+</span>
+<span id="ss">
+
+</span>
+<script>
+var interval;
+var hour=document.getElementById("hh");
+var min=document.getElementById("mm");
+var sec=document.getElementById("ss");
+var ss = 0;
+var mm = 0;
+var hh = 0;
+
+function stopwatch(){
+ss++;
+if(ss>59){
+mm++;
+ss=0;
+}
+if(mm>59){
+hh++;
+mm=0;
+}
+if(hh>23){
+hh=0;
+}
+hour.innerText=hh;
+min.innerText=mm;
+sec.innerText=ss;
+}
+
+function start(){
+ interval=setInterval(stopwatch,1000);
+}
+function reset(){
+ss = -1;
+mm = 0;
+hh = 0;
+}
+function stop(){
+clearInterval(interval);
+}
+
+</script>
+</div>
+<button type="button"
+onclick="start()">
+Start </button>
+<button type="button"
+onclick="stop()">
+Stop </button>
+<button type="button"
+onclick="reset()">
+ Reset</button>
+</body>
+</html>
